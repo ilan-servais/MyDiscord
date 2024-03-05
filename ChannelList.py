@@ -5,7 +5,7 @@ class ChannelList:
     def get_channels(self):
         # Query the database to get all channels
         cursor = self.db_connection.cursor()
-        select_query = "SELECT name, port FROM channels"
+        select_query = "SELECT nom_channel FROM channels"
         cursor.execute(select_query)
         result = cursor.fetchall()
         cursor.close()
