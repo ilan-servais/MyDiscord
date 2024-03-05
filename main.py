@@ -8,16 +8,24 @@ from MainGUI import MainGUI
 import os
 from dotenv import load_dotenv
 
-ctk.set_appearance_mode("dark")
+ctk.set_appearance_mode("light")
 
 load_dotenv(dotenv_path="pass.env")
 
+# Assurez-vous que les variables d'environnement sont correctement chargées
+DB_HOST = os.getenv("DB_HOST")
+DB_USER = os.getenv("DB_USER")
+DB_PASSWORD = os.getenv("DB_PASSWORD")
+DB_PORT = os.getenv("DB_PORT")
+DB_DATABASE = os.getenv("DB_DATABASE")
+
+# Connexion à la base de données MySQL
 db_connection = mysql.connector.connect(
-    host=os.getenv("DB_HOST"),
-    user=os.getenv("DB_USER"),
-    password=os.getenv("DB_PASSWORD"),
-    port=os.getenv("DB_PORT"),
-    database=os.getenv("DB_DATABASE")
+    host=DB_HOST,
+    user=DB_USER,
+    password=DB_PASSWORD,
+    port=DB_PORT,
+    database=DB_DATABASE
 )
 
 class MainApplication(ctk.CTk):
