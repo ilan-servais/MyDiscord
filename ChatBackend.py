@@ -2,13 +2,13 @@
 import socket
 import threading
 import datetime
-from config import IP_ADDRESS, PORT
+from config import MYSQL_HOST, MYSQL_PORT, MYSQL_USER, MYSQL_PASSWORD, MYSQL_DATABASE
 
 class ChatBackend:
     def __init__(self, gui, username):
         # Socket connection
         self.client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        self.client_socket.connect((IP_ADDRESS, PORT))
+        self.client_socket.connect((MYSQL_HOST, MYSQL_PORT))
 
         # Reference to the GUI for updating the textbox
         self.gui = gui
