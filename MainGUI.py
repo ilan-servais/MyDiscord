@@ -1,4 +1,5 @@
 # MainGUI.py
+import tkinter as tk
 import customtkinter as ctk
 from ChatBackend import ChatBackend
 from MemberList import MemberList
@@ -8,7 +9,7 @@ from ChannelList import ChannelList
 
 class MainGUI(ctk.CTkFrame):  # Inherit from ctk.CTkFrame
     def __init__(self, parent, controller, db_connection):  # Add parent, controller, and db_connection as arguments
-        ctk.set_appearance_mode("dark")
+        ctk.set_appearance_mode("light")
         super().__init__(parent)
         self.controller = controller
         self.db_connection = db_connection
