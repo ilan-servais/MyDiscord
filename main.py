@@ -1,6 +1,6 @@
 import customtkinter as ctk
 from tkinter import messagebox
-import mysql.connector
+import pymysql
 from StartupPage import StartupPage
 from LoginPage import LoginPage
 from CreateAccountPage import CreateAccountPage
@@ -20,13 +20,14 @@ DB_PORT = os.getenv("DB_PORT")
 DB_DATABASE = os.getenv("DB_DATABASE")
 
 # Connexion à la base de données MySQL
-db_connection = mysql.connector.connect(
+db_connection = pymysql.connect(
     host=DB_HOST,
     user=DB_USER,
     password=DB_PASSWORD,
-    port=DB_PORT,
+    port=int(DB_PORT),
     database=DB_DATABASE
 )
+
 
 class MainApplication(ctk.CTk):
     def __init__(self):
@@ -61,6 +62,7 @@ class MainApplication(ctk.CTk):
         else:
             self.geometry('600x600')
             self.container.configure(width=400, height=500)
+
 
 if __name__ == "__main__":
     app = MainApplication()
